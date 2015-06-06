@@ -14,12 +14,13 @@ function getTask(task) {
 	return require('./gulp/' + task)(gulp, $, config);
 }
 
-gulp.task('scripts', getTask('scripts'))
-gulp.task('html', getTask('html'))
-gulp.task('style', getTask('style'))
+gulp.task('script', getTask('script'));
+gulp.task('html', getTask('html'));
+gulp.task('style', getTask('style'));
+gulp.task('clean', getTask('clean'));
 
-gulp.task('default', ['scripts', 'html', 'style'], function () {
-	gulp.watch('src/**/*.coffee', ['scripts']);
+gulp.task('default', ['script', 'html', 'style'], function () {
+	gulp.watch('src/**/*.coffee', ['script']);
 	gulp.watch('src/**/*.html', ['html']);
 	gulp.watch('src/**/*.scss', ['style']);
 });
