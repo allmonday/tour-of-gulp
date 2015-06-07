@@ -1,4 +1,10 @@
+@import "compass/reset";
+@import "compass/utilities/general";
+
 $color: #fcfcfd;
 .content {
 	background-color: $color;	
+}
+.clearfix {
+	@include clearfix();
 }
