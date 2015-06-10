@@ -2,5 +2,6 @@
 	"minifiy": true,
 	"strict": true,
 	"breakOnError": true,
+	"carryOther": true
 }
 
