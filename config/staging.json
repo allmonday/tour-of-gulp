@@ -1,4 +1,5 @@
 {
+	"concat": true,
 	"minifiy": false,
 	"strict": false,
 	"breakOnError": true
