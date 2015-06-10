@@ -17,9 +17,10 @@ function getTask(task) {
 gulp.task('script', getTask('script'));
 gulp.task('html', getTask('html'));
 gulp.task('style', getTask('style'));
+gulp.task('other', getTask('other'));
 gulp.task('clean', getTask('clean'));
 
-gulp.task('default', ['script', 'html', 'style'], function () {
+gulp.task('default', ['script', 'html', 'style', 'other'], function () {
 	gulp.watch('src/**/*.coffee', ['script']);
 	gulp.watch('src/**/*.html', ['html']);
 	gulp.watch('src/**/*.scss', ['style']);
