@@ -4,5 +4,6 @@ module.exports = function (gulp, $, config, tool) {
 			.pipe($.clean({
 				force: true
 			}))
+			.pipe($.notify({message: 'clean complete'}))
 	}
 }

@@ -5,6 +5,7 @@ var gulp = require('gulp');
 /* load all plugin, use as $.coffee() */
 var $ = require('gulp-load-plugins')({
 	'gulp-scss-lint': 'scsslint'
+	// 'gulp-concat-css': 'concatCss'
 });
 
 /* load configs */
