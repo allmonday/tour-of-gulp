@@ -1,0 +1,16 @@
+{
+  "name": "tour-of-gulp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/allmonday/tour-of-gulp",
+  "authors": [
+    "tangkikodo <allmonday@126.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

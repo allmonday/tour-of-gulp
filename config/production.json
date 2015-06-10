@@ -1,6 +1,6 @@
 {
 	"concat": true,
-	"minifiy": true,
+	"minify": true,
 	"strict": true,
 	"breakOnError": true,
 	"carryOther": true
