@@ -1,6 +1,6 @@
 module.exports = function (gulp, $, config, tool) {
 	return function () {
-		gulp.src('src/**/*.html')
+		return gulp.src('src/**/*.html')
 			.pipe($.cached('html'))
 			.pipe($.plumber({
 				errorHandler: tool.onError

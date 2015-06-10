@@ -33,7 +33,7 @@ gulp.task('clean', getTask('clean'));
 
 
 /* compositions */
-gulp.task('build', function (cb) {
+gulp.task('new-build', function (cb) {
 	/* first clean public folder, then do async tasks
 		 however, it not always works well: 
 		 Error: ENOENT, open '/Users/tangmin/tour-of-gulp/public/template/index.html'
@@ -41,7 +41,7 @@ gulp.task('build', function (cb) {
 	sequence('clean', ['html', 'style', 'script', 'other'], cb);
 });
 
-// gulp.task('default', ['build']);
+gulp.task('build', ['html', 'style', 'script', 'other']);
 
 gulp.task('dev', ['script', 'html', 'style', 'other'], function () {
 	gulp.watch('src/**/*.coffee', ['script']);
