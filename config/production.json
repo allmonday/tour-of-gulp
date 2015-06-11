@@ -3,6 +3,7 @@
 	"minify": true,
 	"strict": true,
 	"breakOnError": true,
-	"carryOther": true
+	"carryOther": true,
+	"cachebust": true
 }
 

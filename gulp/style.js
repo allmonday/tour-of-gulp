@@ -18,6 +18,9 @@ module.exports = function (gulp, $, config, tool) {
 			/* minify css */
 			.pipe(config.minify ? $.minifyCss() : $.util.noop())
 
+			/* cachebust when production */
+			.pipe(config.cachebust ? tool.cachebust.resources() : $.util.noop())
+
 			.pipe(gulp.dest('public/css'))
 
 			.pipe(tool.reload());

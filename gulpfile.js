@@ -9,6 +9,7 @@ var $ = require('gulp-load-plugins')({});
 var buildEnv = $.util.env.environment || 'development';
 $.util.log($.util.colors.red(buildEnv))
 
+/* necessary requires */
 var config = require('./config/' + buildEnv + '.json');
 var sequence = require('run-sequence').use(gulp);
 var browserSync = require('browser-sync');
@@ -27,8 +28,15 @@ tool = {
 		return this.browserSync.reload({stream: true})	
 	},
 	express: express,
-	server: server
+	server: server,
+	/* cache buster
+		hash resource, then change the resource name in html, 
+		so html will be executed at very last
+	*/
+	cachebust: new $.cachebust()
 }
+
+
 
 /* helper for loading task */
 function getTask(task) {
@@ -40,19 +48,22 @@ gulp.task('vendor', getTask('vendor'));
 gulp.task('script', getTask('script'));
 gulp.task('html', getTask('html'));
 gulp.task('style', getTask('style'));
+gulp.task('image', getTask('image'));
 gulp.task('other', getTask('other'));
 gulp.task('clean', getTask('clean'));
 gulp.task('server', getTask('server'));
 
+
 /* compositions */
 gulp.task('build', function (cb) {
-	sequence('clean', ['html', 'style', 'script', 'other'], cb);
+	sequence('clean', ['style', 'script', 'image', 'other'], 'html', cb); // cachebust
 });
 
 gulp.task('watch', function () {
 	gulp.watch('src/**/*.coffee', ['script']);
 	gulp.watch('src/**/*.html', ['html']);
 	gulp.watch('src/**/*.scss', ['style']);
+	gulp.watch('src/**/*.{jpg,png}', ['image']);
 });
 
 gulp.task('dev', function (cb) {

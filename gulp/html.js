@@ -5,6 +5,9 @@ module.exports = function (gulp, $, config, tool) {
 			.pipe($.plumber({
 				errorHandler: tool.onError
 			}))
+
+			.pipe(tool.cachebust.references())
+			
 			.pipe(gulp.dest('public'))
 			
 			.pipe(tool.reload());
