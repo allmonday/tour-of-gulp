@@ -6,8 +6,8 @@ module.exports = function (gulp, $, config, tool) {
 				errorHandler: tool.onError
 			}))
 
-			.pipe(tool.cachebust.references())
-			
+			.pipe(config.cachebust ? tool.cachebust.references() : $.util.noop())
+
 			.pipe(gulp.dest('public'))
 			
 			.pipe(tool.reload());
