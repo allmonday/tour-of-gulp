@@ -3,10 +3,7 @@
 var gulp = require('gulp');
 
 /* load all plugin, use as $.coffee() */
-var $ = require('gulp-load-plugins')({
-	'gulp-scss-lint': 'scsslint'
-	// 'gulp-concat-css': 'concatCss'
-});
+var $ = require('gulp-load-plugins')({});
 
 /* load configs */
 var buildEnv = $.util.env.environment || 'development';
@@ -14,12 +11,23 @@ $.util.log($.util.colors.red(buildEnv))
 
 var config = require('./config/' + buildEnv + '.json');
 var sequence = require('run-sequence').use(gulp);
+var browserSync = require('browser-sync');
+var express = require('express');
+var server = express();
 
 tool = {
+	/* error handler */
 	onError: function (err) {
 		$.util.beep();
 		$.util.log($.util.colors.red(err))
-	}
+	},
+	/* live reload*/
+	browserSync: browserSync,
+	reload: function () {
+		return this.browserSync.reload({stream: true})	
+	},
+	express: express,
+	server: server
 }
 
 /* helper for loading task */
@@ -34,14 +42,20 @@ gulp.task('html', getTask('html'));
 gulp.task('style', getTask('style'));
 gulp.task('other', getTask('other'));
 gulp.task('clean', getTask('clean'));
+gulp.task('server', getTask('server'));
 
 /* compositions */
 gulp.task('build', function (cb) {
 	sequence('clean', ['html', 'style', 'script', 'other'], cb);
 });
 
-gulp.task('dev', ['script', 'html', 'style', 'other'], function () {
+gulp.task('watch', function () {
 	gulp.watch('src/**/*.coffee', ['script']);
 	gulp.watch('src/**/*.html', ['html']);
 	gulp.watch('src/**/*.scss', ['style']);
 });
+
+gulp.task('dev', function (cb) {
+	sequence('build', 'watch', 'server', cb);
+})
+

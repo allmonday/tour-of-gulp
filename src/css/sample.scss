@@ -6,5 +6,11 @@ $color: #fcfcfd;
 	background-color: $color;	
 }
 .clearfix {
-	@include clearfix();
+	@include clearfix();	
+}
+h1 {
+	font-size: 48px;
+}
+h2 {
+	font-size: 36px;
 }

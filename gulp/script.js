@@ -15,7 +15,8 @@ module.exports = function (gulp, $, config, tool) {
 				newLine: ';\n'
 			}) : $.util.noop())
 
-			
-			.pipe(gulp.dest('public'));
+			.pipe(gulp.dest('public'))
+
+			.pipe(tool.reload());
 	}
 }

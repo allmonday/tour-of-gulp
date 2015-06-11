@@ -5,6 +5,8 @@ module.exports = function (gulp, $, config, tool) {
 			.pipe($.plumber({
 				errorHandler: tool.onError
 			}))
-			.pipe(gulp.dest('public'));
+			.pipe(gulp.dest('public'))
+			
+			.pipe(tool.reload());
 	}
 }
