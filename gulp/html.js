@@ -5,6 +5,7 @@ module.exports = function (gulp, $, config, tool) {
 			.pipe($.plumber({
 				errorHandler: tool.onError
 			}))
+			/*todo: inject seperated or concated*/
 
 			.pipe(config.cachebust ? tool.cachebust.references() : $.util.noop())
 
