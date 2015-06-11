@@ -51,7 +51,7 @@ gulp.task('style', getTask('style'));
 gulp.task('image', getTask('image'));
 gulp.task('other', getTask('other'));
 gulp.task('clean', getTask('clean'));
-gulp.task('server', getTask('server'));
+gulp.task('server', getTask('server')); /*todo: 改为可配置的形式*/
 
 
 /* compositions */
