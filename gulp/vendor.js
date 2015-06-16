@@ -4,7 +4,7 @@ module.exports = function (gulp, $, config, tool) {
 		var vendors = [
 			'bower/**/'
 		]
-		return gulp.src('bower/**/*.scss')
+		return gulp.src()
 			.pipe(gulp.dest('public/css'));
 	}
 }

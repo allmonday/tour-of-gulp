@@ -6,12 +6,13 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({});
 
 /* load configs */
-var buildEnv = $.util.env.environment || 'development';
+var buildEnv = $.util.env.env || 'development';
 $.util.log($.util.colors.red(buildEnv))
 
 /* necessary requires */
 var config = require('./config/' + buildEnv + '.json');
-var sequence = require('run-sequence').use(gulp);
+$.util.log(config);
+var sequence = require('run-sequence') //.use(gulp);
 var browserSync = require('browser-sync');
 var express = require('express');
 var server = express();
@@ -25,7 +26,11 @@ tool = {
 	/* live reload*/
 	browserSync: browserSync,
 	reload: function () {
-		return this.browserSync.reload({stream: true})	
+		if (server) {
+			return this.browserSync.reload({stream: true});
+		} else {
+			return $.util.noop();
+		}
 	},
 	express: express,
 	server: server,
@@ -44,20 +49,40 @@ function getTask(task) {
 }
 
 /* all tasks needed */
-gulp.task('vendor', getTask('vendor'));
+gulp.task('clean', getTask('clean'));
+
+/* main tasks */
 gulp.task('script', getTask('script'));
 gulp.task('html', getTask('html'));
 gulp.task('style', getTask('style'));
 gulp.task('image', getTask('image'));
+
+/* just copy */
+gulp.task('vendor', getTask('vendor'));
 gulp.task('other', getTask('other'));
-gulp.task('clean', getTask('clean'));
+
+/* optimize */
+gulp.task('inject', getTask('inject'));
+gulp.task('fixIndex', getTask('fixIndex'));
+gulp.task('cachebust-static', getTask('cachebust-static'));
+gulp.task('cachebust-html', getTask('cachebust-html'));
+
+/* server */
 gulp.task('server', getTask('server')); /*todo: 改为可配置的形式*/
+
+/* final */
+gulp.task('final', getTask('final')); /*todo: 改为可配置的形式*/
+
 
 
 /* compositions */
-gulp.task('build', function (cb) {
-	sequence('clean', ['style', 'script', 'image', 'other'], 'html', cb); // cachebust
+gulp.task('build', ['clean'], function (cb) {
+	sequence(['style', 'script', 'image', 'other'], 'html', 'inject', 'fixIndex', 'final', cb);
 });
+
+// gulp.task('optimize', ['build'], function (cb) {
+// 	sequence('cachebust-static', 'cachebust-html', cb);
+// });
 
 gulp.task('watch', function () {
 	gulp.watch('src/**/*.coffee', ['script']);

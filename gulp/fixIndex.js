@@ -1,6 +1,6 @@
 module.exports = function (gulp, $, config, tool) {
 	/* variables */	
-	var src = ['src/**/*.html', '!src/index.html'];
+	var src = ['public/index.html'];
 	var dest = 'public';
 
 	return function () {

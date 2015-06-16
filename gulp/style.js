@@ -1,9 +1,11 @@
-/*
-compass, maybe no need for gulp-scss-lint
-*/
+/* compass, maybe no need for gulp-scss-lint */
+
 module.exports = function (gulp, $, config, tool) {
+	var src = 'src/**/*.scss';
+	var dest = 'public/css';
+
 	return function () {
-		return gulp.src('src/**/*.scss')
+		return gulp.src(src)
 
 			.pipe($.compass({
 				config_file: './config.rb',
@@ -13,15 +15,14 @@ module.exports = function (gulp, $, config, tool) {
 
 			/* concat css */
 			.pipe(config.concat ? $.concatCss(
-				config.minify ? 'app.min.css': 'app.css') : $.util.noop())
+				config.minify ? '../app.min.css': '../app.css') : $.util.noop())
 
 			/* minify css */
 			.pipe(config.minify ? $.minifyCss() : $.util.noop())
 
-			/* cachebust when production */
 			.pipe(config.cachebust ? tool.cachebust.resources() : $.util.noop())
-
-			.pipe(gulp.dest('public/css'))
+			
+			.pipe(gulp.dest(dest))
 
 			.pipe(tool.reload());
 	}
