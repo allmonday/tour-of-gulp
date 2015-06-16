@@ -13,8 +13,11 @@ module.exports = function (gulp, $, config, tool) {
 			.pipe($.jshint.reporter(jshintStylelish))
 
 			.pipe(config.minify ? $.uglify() : $.util.noop())
+
+			/* 取出调试中的 debug 信息输出 */
 			.pipe(config.minify ? $.stripDebug() : $.util.noop())
-			/* 如果concat 放在根目录, 负责各自的目录之下 */
+
+			/* 如果concat 放在根目录, 放在各自的目录之下 */
 			.pipe(config.concat ? $.concat('app.min.js', {
 				newLine: ';\n'
 			}) : $.util.noop())
