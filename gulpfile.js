@@ -73,12 +73,9 @@ gulp.task('server', getTask('server')); /*todo: 改为可配置的形式*/
 
 /* compositions */
 gulp.task('build', ['clean'], function (cb) {
-	sequence(['style', 'script', 'image', 'other'], 'html', 'inject', 'fixIndex', cb);
+	sequence(['style', 'script', 'image', 'other'], 'html', 'inject', cb);
 });
 
-// gulp.task('optimize', ['build'], function (cb) {
-// 	sequence('cachebust-static', 'cachebust-html', cb);
-// });
 
 gulp.task('watch', function () {
 	gulp.watch('src/**/*.coffee', ['script']);
