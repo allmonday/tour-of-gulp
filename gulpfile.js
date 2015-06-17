@@ -70,14 +70,10 @@ gulp.task('cachebust-html', getTask('cachebust-html'));
 /* server */
 gulp.task('server', getTask('server')); /*todo: 改为可配置的形式*/
 
-/* final */
-gulp.task('final', getTask('final')); /*todo: 改为可配置的形式*/
-
-
 
 /* compositions */
 gulp.task('build', ['clean'], function (cb) {
-	sequence(['style', 'script', 'image', 'other'], 'html', 'inject', 'fixIndex', 'final', cb);
+	sequence(['style', 'script', 'image', 'other'], 'html', 'inject', 'fixIndex', cb);
 });
 
 // gulp.task('optimize', ['build'], function (cb) {
