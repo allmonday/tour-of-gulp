@@ -36,6 +36,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^5.1.8",
+    "gulp-rename": "^1.2.2",
     "gulp-rev": "^4.0.0",
     "gulp-sass": "^2.0.1",
     "gulp-scss-lint": "^0.2.0",

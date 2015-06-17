@@ -1,8 +1,12 @@
 module.exports = function (gulp, $, config, tool) {
 
 	return function () {
-		tool.server.use(tool.express.static('public'));
-		tool.server.listen(8000);
-		tool.browserSync({proxy: 'localhost:8000'});
+		if (config.server) {
+			tool.server.use(tool.express.static('public'));
+			tool.server.listen(config.server.port);
+			tool.browserSync({proxy: "localhost:" + config.server.port});
+		} else {
+			$.util.log($.util.colors.red("server is prohibited"))
+		}
 	}
 }

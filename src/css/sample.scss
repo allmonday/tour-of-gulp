@@ -1,18 +1,4 @@
-@import "compass/reset";
-@import "compass/utilities/general";
-
-$color: #fcfcfd;
-.content {
-	background-color: $color;	
-}
-.clearfix {
-	@include clearfix();	
-}
-h1 {
-	font-size: 48px;
-	color: red;
-}
-h2 {
-	font-size: 36px;
-	color: red;
+.done {
+	color: #7f8c8d;
+	text-decoration: line-through;
 }

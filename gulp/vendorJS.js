@@ -3,8 +3,9 @@ module.exports = function (gulp, $, config, tool) {
 	return function () {
 		
 		var vendors = [
-			'node_modules/jquery/dist/jquery.js/',
-			'node_modules/angular/angular.js/',
+			'bower_components/jquery/dist/jquery.js/',
+			'bower_components/vue/dist/vue.js',
+			'bower_components/uikit/js/uikit.js'
 		]
 
 		return gulp.src(vendors)

@@ -12,5 +12,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "uikit": "~2.21.0",
+    "vue": "~0.12.1"
+  }
 }

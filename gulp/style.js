@@ -22,11 +22,11 @@ module.exports = function (gulp, $, config, tool) {
 
 			/* minify css */
 			.pipe(config.minify ? $.minifyCss() : $.util.noop())
-
-			.pipe(config.cachebust ? tool.cachebust.resources() : $.util.noop())
 			
 			/* <<< write source */
 			.pipe(config.minify ? $.sourcemaps.write() : $.util.noop())
+
+			.pipe(config.cachebust ? tool.cachebust.resources() : $.util.noop())
 			
 			.pipe(gulp.dest(dest))
 
