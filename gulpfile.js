@@ -34,11 +34,7 @@ tool = {
 	},
 	express: express,
 	server: server,
-	/* cache buster
-		hash resource, then change the resource name in html, 
-		so html will be executed at very last
-	*/
-	cachebust: new $.cachebust()
+	cachebust: new $.cachebust() /* cache buster hash resource, then change the resource name in html, so html will be executed at very last */
 }
 
 
@@ -64,8 +60,6 @@ gulp.task('other', getTask('other'));
 /* optimize */
 gulp.task('inject', getTask('inject'));
 gulp.task('fixIndex', getTask('fixIndex'));
-gulp.task('cachebust-static', getTask('cachebust-static'));
-gulp.task('cachebust-html', getTask('cachebust-html'));
 
 /* server */
 gulp.task('server', getTask('server')); /*todo: 改为可配置的形式*/
@@ -85,6 +79,6 @@ gulp.task('watch', function () {
 });
 
 gulp.task('dev', function (cb) {
-	sequence('build', 'watch', 'server', cb);
+	sequence('build', 'server', 'watch', cb);
 })
 
