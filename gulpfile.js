@@ -12,7 +12,8 @@ $.util.log($.util.colors.red(buildEnv))
 /* necessary requires */
 var config = require('./config/' + buildEnv + '.json');
 $.util.log(config);
-var sequence = require('run-sequence') //.use(gulp);
+var series = require('stream-series');
+var sequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var express = require('express');
 var server = express();
@@ -34,7 +35,8 @@ tool = {
 	},
 	express: express,
 	server: server,
-	cachebust: new $.cachebust() /* cache buster hash resource, then change the resource name in html, so html will be executed at very last */
+	cachebust: new $.cachebust(), /* cache buster hash resource, then change the resource name in html, so html will be executed at very last */
+	series: series
 }
 
 
@@ -67,7 +69,7 @@ gulp.task('server', getTask('server')); /*todo: 改为可配置的形式*/
 
 /* compositions */
 gulp.task('build', ['clean'], function (cb) {
-	sequence(['style', 'script', 'image', 'other'], 'html', 'inject', cb);
+	sequence(['style', 'script', 'image', 'other', 'vendor'], 'html', 'inject', cb);
 });
 
 
