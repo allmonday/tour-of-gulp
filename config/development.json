@@ -5,6 +5,6 @@
 	"cachebust": false,
 	"breakOnError": false,
 	"server": {
-		"port": "8000"
+		"port": "8888"
 	}
 }

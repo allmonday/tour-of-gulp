@@ -3,8 +3,4 @@ class Animal
 	move: (meters) ->
 		alert @name + " moved #{meters}"
 
-console.log 'hi'
-console.log 'hi'
-console.log 'hi'
-console.log 'hi'
-console.log 'hi'
+console.log 'hi you!'

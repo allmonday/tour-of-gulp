@@ -6,12 +6,16 @@ module.exports = function (gulp, $, config, tool) {
 
 	return function () {
 		return gulp.src(src)
+			// cache changes
+			// .pipe($.cached('style'))	
 
 			.pipe($.compass({
 				config_file: './config.rb',
 				css: '.tmp/css',  /* save default output to trash and let output dealed by follow steps */
 				sass: 'src/css'
 			}))
+
+			// .pipe($.rememberHistory('style'))	// 效果有问题,暂时不用
 
 			/* concat css */
 			.pipe(config.concat ? $.concatCss(

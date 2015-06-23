@@ -27,7 +27,7 @@ tool = {  // mount requires above to tool
 	/* live reload*/
 	browserSync: browserSync,
 	reload: function () {
-		if (server) {
+		if (this.server) {
 			return this.browserSync.reload({stream: true});
 		} else {
 			return $.util.noop();
@@ -89,10 +89,26 @@ gulp.task('html-plus-inject', function (cb) {
 }) 
 
 gulp.task('watch', function () {
-	gulp.watch('src/**/*.coffee', ['script']);
+	// 删除文件从remember中删除
+	var scriptWatcher = gulp.watch('src/**/*.coffee', ['script']);
+	var styleWatcher = gulp.watch('src/**/*.scss', ['style']);
 	gulp.watch('src/**/*.html', ['html-plus-inject']);
-	gulp.watch('src/**/*.scss', ['style']);
 	gulp.watch('src/**/*.{jpg,png}', ['image']);
+
+	scriptWatcher.on('change', function (event) {
+		if (event.type === 'deleted') {
+			delete $.cached.caches['script'][event.path];
+			$.rememberHistory.forget('script', event.path);
+		}
+	});
+
+	styleWatcher.on('change', function (event) {
+		if (event.type === 'deleted') {
+			delete $.cached.caches['style'][event.path];
+			$.rememberHistory.forget('style', event.path);
+		}
+	});
+
 });
 
 gulp.task('dev', function (cb) {

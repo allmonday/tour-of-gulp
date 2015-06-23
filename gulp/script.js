@@ -6,11 +6,17 @@ module.exports = function (gulp, $, config, tool) {
 
 	return function () {
 		return gulp.src(src)
+			// cache changes
+			.pipe($.cached('script'))	
 
-			.pipe($.coffee({bare: true}))
+			.pipe($.coffee({bare: true}).on('error', $.util.log))
+
+			.pipe($.rememberHistory('script'))
 
 			.pipe($.jshint())
 			.pipe($.jshint.reporter(jshintStylelish))
+
+			// put unchanged files back
 
 			/* 如果concat 放在根目录, 放在各自的目录之下 */
 			.pipe(config.concat ? $.concat('app.min.js', {

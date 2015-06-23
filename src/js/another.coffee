@@ -11,3 +11,6 @@ demo2 = new Vue
 			{done: true, content: 'learn js'},
 			{done: false, content: 'learn vue'}
 		]
+
+data = [1,2,3,4,5]
+console.log data
