@@ -3,7 +3,7 @@ module.exports = function (gulp, $, config, tool) {
 	return function () {
 		
 		var vendors = [
-			'bower_components/uikit/css/uikit.css'
+			// 'bower_components/uikit/css/uikit.css'
 		]
 
 		return gulp.src(vendors)

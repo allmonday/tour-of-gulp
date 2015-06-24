@@ -101,13 +101,12 @@ gulp.task('watch', function () {
 			$.rememberHistory.forget('script', event.path);
 		}
 	});
-
-	styleWatcher.on('change', function (event) {
-		if (event.type === 'deleted') {
-			delete $.cached.caches['style'][event.path];
-			$.rememberHistory.forget('style', event.path);
-		}
-	});
+	// styleWatcher.on('change', function (event) {
+	// 	if (event.type === 'deleted') {
+	// 		delete $.cached.caches['style'][event.path];
+	// 		$.rememberHistory.forget('style', event.path);
+	// 	}
+	// });
 
 });
 
