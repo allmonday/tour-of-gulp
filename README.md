@@ -1,6 +1,6 @@
 # tour-of-gulp
 
-use gulp and a maintainable gulp
+how to have a maintainable gulp
 
 ## configs of each status
 
