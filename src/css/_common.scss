@@ -1,0 +1,28 @@
+@import "variables";
+
+
+/*
+跟具
+*/
+@media screen and (min-width: 319px) { // iphone 4/4s/5/5s
+	html { font-size: $rootFontSize_iphone5; }
+}
+// samsung galaxy note II/III & iphone 6(375px)
+@media screen and (min-width: 359px) {
+	html { font-size: $rootFontSize_note_iphone6; }
+}
+@media screen and (min-width: 413px) { // iphone 6 plus
+	html { font-size: $rootFontSize_note_iphone6s; }
+}
+@media screen and (min-width: 413px) { // droid 4
+	html { font-size: $rootFontSize_note_iphone6s; }
+}
+@media screen and (min-width: 539px) { // google nexus 7
+	html { font-size: $rootFontSize_note_droid4; }
+}
+@media screen and (min-width: 767px) { // ipad
+	html { font-size: $rootFontSize_ipad; }
+}
+@media screen and (min-width: 1024px) { // desktop
+	html { font-size: $rootFontSize_desktop; }
+}

@@ -13,7 +13,7 @@ module.exports = function (gulp, $, config, tool) {
 				config_file: './config.rb',
 				css: '.tmp/css',  /* save default output to trash and let output dealed by follow steps */
 				sass: 'src/css'
-			}))
+			}).on('error', $.util.log))
 
 			// .pipe($.rememberHistory('style'))	// 效果有问题,暂时不用
 
