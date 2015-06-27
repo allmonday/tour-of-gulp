@@ -26,3 +26,11 @@
 @media screen and (min-width: 1024px) { // desktop
 	html { font-size: $rootFontSize_desktop; }
 }
+
+// usefual shortcuts
+.tc {
+	text-align: center;
+}
+.vc {
+	vertical-align: middle;
+}

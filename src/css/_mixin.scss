@@ -1,0 +1,19 @@
+@import "variables";
+
+@function pxToRem($px) {
+	@return $px/$baseFontSize*0.5rem
+}
+
+@mixin cover($zidx, $bgColor) {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: $bgColor;
+	z-index: $zidx;
+}
+
+.all-cover {
+	@include cover(10, #cff);
+}

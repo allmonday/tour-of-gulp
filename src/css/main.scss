@@ -1,3 +1,8 @@
 @import "normalize";
 @import "common";
-@import "decorate";
+@import "mixins/clearfix";
+@import "mixins/position";
+@import "mixin";
+
+
+@import "btn";

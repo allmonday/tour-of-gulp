@@ -1,0 +1,27 @@
+
+@mixin button-variant($color, $bg, $border) {
+	color: $color;
+	background-color: $bg;
+	border-color: $border;
+}
+
+.btn {
+	display: inline-block;	
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid transparent;
+	cursor: pointer;
+
+	padding: 6px 12px;
+	border-radius: 4px;
+
+	&:hover,
+	&:focus {
+		color: gray;
+		text-decoration: none;
+	}
+}
+
+.btn-default {
+	@include button-variant(black, white, gray);
+}

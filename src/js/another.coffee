@@ -1,16 +1,9 @@
-demo = new Vue 
-	el: '#demo'
-	data:
-		message: 'hello vue'
+$ -> FastClick.attach document.body
 
-demo2 = new Vue
-	el: "#demo2"
-	data:
-		title: 'todos',
-		todos: [
-			{done: true, content: 'learn js'},
-			{done: false, content: 'learn vue'}
-		]
+$('#close-screen').click -> $('.all-cover').fadeOut "slow"
+$('#show-screen').click -> $('.all-cover').fadeIn "slow"
 
-data = [1,2,3,4,5]
-console.log data
+$('#close-screen').data 'name', 'hello'
+console.log $('#close-screen').data 'name'
+
+$('#close-screen').animate left: 200

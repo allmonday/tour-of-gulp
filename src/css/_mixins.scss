@@ -1,5 +1,0 @@
-@import "variables";
-
-@function pxToRem($px) {
-	@return $px/$baseFontSize*0.5rem
-}
