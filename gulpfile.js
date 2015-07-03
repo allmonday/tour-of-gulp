@@ -27,7 +27,7 @@ tool = {  // mount requires above to tool
 	/* live reload*/
 	browserSync: browserSync,
 	reload: function () {
-		if (this.server) {
+		if (this.server && config.sync) {
 			return this.browserSync.reload({stream: true});
 		} else {
 			return $.util.noop();

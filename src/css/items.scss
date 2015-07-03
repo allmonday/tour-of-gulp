@@ -1,0 +1,27 @@
+// use BEM CSS style
+#items {
+	$indexColor: #fff;
+	$contentColor: #fff;
+	$bgColor: #777;
+	.item {
+		&:hover {
+			cursor: pointer;
+		}
+		padding: 2px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+		background-color: $bgColor;
+		display: inline-block;
+
+		@at-root #{&}__index { // -> .item__index
+			color: $indexColor;	
+		}
+		@at-root #{&}__content {
+			padding: 2x;
+			color: $contentColor;
+			&:hover {
+				background-color: lighten($bgColor, 30%);
+			}
+		}
+	}	
+}

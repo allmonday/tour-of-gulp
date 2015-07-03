@@ -4,6 +4,7 @@
 	"strict": false,
 	"cachebust": false,
 	"breakOnError": false,
+	"sync": true,
 	"server": {
 		"port": "8888"
 	}

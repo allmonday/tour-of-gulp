@@ -11,14 +11,26 @@
 	<section class="header">
 		<h1>header</h1>	
 	</section>
-	<section class="content">
-		<div class="btn btn-default trans-center" id="show-screen">button</div>
+	<section id="search-bar">
+		<p>{{ searchContent }}</p>
+		<input type="text" v-model="searchContent">
+		<div class="btn btn-default" id="" v-on="click: addItem">add</div>
+		<div class="btn btn-default" id="" v-on="click: removeItem">remove</div>
 	</section>
-	<div class="all-cover">
-		<div id="close-screen" class="trans-center">
-		fuck you
-		</div>
-	</div>
+
+	<pre>
+		test for bem css style
+	</pre>
+
+	<section id="items">
+		<ul>
+			<li class="item" v-repeat="items">
+				<span class="item__index">{{ $index }}</span>
+				<span class="item__content">{{ $value }}</span>
+				<span class="item__content" v-text="$value | reverse"></span>
+			</li>
+		</ul>
+	</section>
  	<!-- inject:js -->
 	<!-- endinject -->
 </body>
