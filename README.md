@@ -1,6 +1,6 @@
 # tour-of-gulp
 
-use gulp and a maintainable gulp
+how to have a maintainable gulp
 
 ## configs of each status
 
@@ -10,10 +10,10 @@ flags:
 {
     "concat": false,
     "minifiy": false,
-    "strict": false,  // jshint, csslint
+    "strict": false,
     "cachebust": false,
     "breakOnError": false,
-    "carryOther": false, // 3rd vendors
+    "carryOther": false,
     "cachebust": false,
     "server": {
         "url": "dev.example.com",
@@ -39,3 +39,9 @@ flags:
     - minified assets
     - no static server
     - strict quality check, which will break the build
+
+## gulp-load-plugins
+In old style, we need to declare all requires before tasks begin, which will be a waste of time if I only want to do a single task eg `gulp html`, by using `gulp-load-plugins`, it will not load all stuff at first but lazy-load them.
+
+## separated tasks
+each task is a js file, it will be easy to index and modify.
