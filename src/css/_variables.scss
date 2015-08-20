@@ -9,3 +9,133 @@ $rootFontSize_note_droid4: 18px;
 $rootFontSize_nexus7: 20px;
 $rootFontSize_ipad: 25px;
 $rootFontSize_desktop: 40px;
+
+// color
+$standard-blue: #66a4f9;
+$standard-blue-1: #4b8ada;
+
+$standard-gray: #f7f7f7;
+$standard-gray-1: #dbdcde;
+$standard-gray-2: #abb4c3;
+
+$standard-font-black: #4b525c;
+
+// _variables.scs
+
+// ====================== standard color STARTS
+$std_clr_gray_0: #4b525c;
+$std_clr_gray_1: #abb4c3;
+$std_clr_gray_2: #e8f0f8;
+$std_clr_gray_3: #f7f7f7;
+$std_clr_gray_4: #DBDCDE;
+$std_clr_blue_0: #66a4f9;
+$std_clr_blue_1: #4b8ada;
+$std_clr_green_0: #2cd6b1;
+$std_clr_green_1: #1ebd97;
+$std_clr_red: #e75e48;
+$std_clr_yellow_0: #ffd060;
+$std_clr_yellow_1: #ffc741;
+
+// USE THESE:
+$clr_font_main: $std_clr_gray_0; // 主要字、段落
+$clr_font_minor: $std_clr_gray_1; // icon、次要字、tag
+$clr_border: $std_clr_gray_3; // 边线、分割线
+$clr_border-background: $std_clr_gray_4; //nala 边线和背景色
+$clr_background: $std_clr_gray_3; // 背景
+$clr_block_main_blue: $std_clr_blue_0; // 主要色块 0
+$clr_block_main_blue_selected: $std_clr_blue_1; // 选中颜色 0
+$clr_block_main_green:  $std_clr_green_0; // 主要色块 1
+$clr_block_main_green_selected: $std_clr_green_1; // 选中颜色 1
+$clr_highlight: $std_clr_red; // 突出颜色
+$clr_block_minor_yellow0: $std_clr_yellow_0; // 次要色块 淡黄
+$clr_block_minor_yellow1: $std_clr_yellow_1; // 次要色块 黄
+$clr_background_with_opacity: rgba(0, 0, 0, 0.85);
+// Convenient (not listed in designer's document)
+$clr_error: $std_clr_red;
+$clr_disabled: $clr_background;
+$clr_shadow_border: #DCDDE0;
+$clr_input_fill_color: #FDFDFD;
+$clr_deep_red: #D73B22;
+$clr_pagination: #838C95;
+$clr_splitter: #f1f5f8;
+$clr_light_green: #fbfefe;
+$clr_white: #fff;
+// ===================== standard color ENDS
+
+
+// ===================== 最新标准色
+// 绿颜色
+$clr-green-dim: #D5F7EF;
+$clr-green-light: #61E1C5;
+$clr-green-standard: #2CD6B1;
+$clr-green-dark: #1EBD98;
+// 蓝颜色
+$clr-blue-dim: #E1EDFE;
+$clr-blue-light: #8DBBFB;
+$clr-blue-standard: #66A4F9;
+$clr-blue-dark: #4B8ADA;
+// 红颜色
+$clr-red-dim: #FADFDB;
+$clr-red-light: #ED8777;
+$clr-red-standard: #E75F49;
+$clr-red-dark: #D73B22;
+// 黄颜色
+$clr-yellow-dim: #FFF6E0;
+$clr-yellow-light: #FFDC88;
+$clr-yellow-standard: #FFD060;
+$clr-yellow-dark: #FFBF25;
+// 灰
+$clr-grey-light: #F7F7F7;
+$clr-grey-standard: #E8F0F8;
+$clr-grey-dark: #ABB4C3;
+// 黑
+$clr-black-dim: #DBDCDE;
+$clr-black-light: #787E85;
+$clr-black-standard: #4B525C;
+$clr-black-dark: #31353A;
+// =====================
+
+// size
+$form_std_padding: 12px;
+
+// Modals
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+$border-radius-large:       6px !default;
+$line-height-base:        1.428571429 !default; // 20/14
+//
+//##
+$zindex-modal:             1050 !default;
+
+//** Padding applied to the modal body
+$modal-inner-padding:         15px !default;
+
+//** Padding applied to the modal title
+$modal-title-padding:         15px !default;
+//** Modal title line-height
+$modal-title-line-height:     $line-height-base !default;
+
+//** Background color of modal content area
+$modal-content-bg:                             #fff !default;
+//** Modal content border color
+$modal-content-border-color:                   rgba(0,0,0,.2) !default;
+//** Modal content border color **for IE8**
+$modal-content-fallback-border-color:          #999 !default;
+
+//** Modal backdrop background color
+$modal-backdrop-bg:           #bdbdbd !default;
+//** Modal backdrop opacity
+$modal-backdrop-opacity:      .8 !default;
+//** Modal header border color
+$modal-header-border-color:   #e5e5e5 !default;
+//** Modal footer border color
+$modal-footer-border-color:   $modal-header-border-color !default;
+
+$modal-lg:                    900px !default;
+$modal-md:                    600px !default;
+$modal-sm:                    300px !default;
+
+$zindex-modal-background:  1040 !default;
+

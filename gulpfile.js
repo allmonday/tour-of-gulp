@@ -3,7 +3,9 @@
 var gulp = require('gulp');
 
 /* load all plugin, use as $.coffee(), could rename the plugins */
-var $ = require('gulp-load-plugins')();
+var $ = require('gulp-load-plugins')({
+	rename: { 'gulp-autoprefixer': 'autoprefixer' }
+});
 
 /* load configs */
 var buildEnv = $.util.env.env || 'development';

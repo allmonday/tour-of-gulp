@@ -1,0 +1,32 @@
+@import "variables";
+@import "mixins/position";
+
+.dq-radio {
+
+	$size: 18px;
+
+	// for selected
+	$selected-color: #2cd6b1;
+	$selected-border-color: #1ebd98;
+
+	// for unselected
+	$normal-color: #f7f7f7;
+	$normal-border-color: #dbdcde;
+
+	@include circle($size);
+	margin: 5px;
+	box-sizing: border-box;
+	position: relative;
+	border: 2px solid $normal-border-color;
+	background: $normal-color;
+
+
+	&.selected {
+		border: 2px solid $selected-border-color;
+		background: #fff;
+		// inner white, inner border, inner background
+		box-shadow: inset 0 0 0 2px #fff,
+					inset 0 0 0 1px $selected-border-color,
+					inset 0 0 0 10px $selected-color;
+	}
+}

@@ -1,0 +1,32 @@
+@import "variables";
+
+.dq-label {
+	$size-height: 28px;
+	$size-width: 100px;
+	
+	border-radius: 4px;
+	margin-bottom: 5px;
+	height: $size-height;
+	width: $size-width;
+	
+	text-align: center;
+	font-size: 14px;
+	line-height: 28px;
+	
+	// normal status	
+	border: 1px solid $standard-gray-1; 
+	background-color: $standard-gray;
+	color: $standard-font-black;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&.selected { // when selected
+		box-shadow: 2px 2px 4px 0px #E1EDFE;
+		border: 1px solid $standard-blue-1; 
+		background-color: $standard-blue;
+		color: #fff;
+	}
+	
+}

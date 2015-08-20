@@ -1,0 +1,119 @@
+@import "variables";
+
+%down-caret {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 4px 4.5px 0 4.5px;
+	border-color: $standard-gray-2 transparent transparent transparent;
+}
+
+.dq-adv-color {
+	background: #FFFFFF;
+	border: 1px solid #DBDCDE;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	height: 38px;
+	width: 208px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-size: 0;
+
+	&_colors {
+		display: inline-block;
+		border-radius: 5px;
+		background-color: $std_clr_gray_3;
+		background-clip: padding-box;
+		border: 1px dashed $std_clr_gray_1;
+		margin-left: 9px;
+		width: 27px;
+		height: 100%;
+
+		&:first-child {
+			margin-left: 10px;
+		}
+
+	}
+	&_title {
+		position: relative;
+		top: -5px;
+		margin-left: 6px;
+		font-size: 14px;
+		line-height: 23px;
+		color: $std_clr_gray_1;
+	}
+}
+
+.dq-free-color {
+	$bar-height: 37px;
+	$bar-width: 183px;
+	$radius-val: 3px;
+	&_top {
+		position: relative;
+		height: $bar-height;
+		width: $bar-width;
+		border: 2px solid #66A4F9;
+		box-shadow: 2px 2px 4px 0px #E1EDFE;
+		border-radius: $radius-val;
+	}
+	&_dropdown {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 35px;
+		height: 100%;
+		border-top-right-radius: $radius-val;
+		border-bottom-right-radius: $radius-val;
+		border-left: 1px solid $standard-gray-2;
+		background-color: #fff;
+		&:hover {
+			cursor: pointer;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			top: 15px;	
+			left: 13px;
+			@extend %down-caret;
+		}
+	}
+	&_colors {
+		padding-top: 5px;
+		border-radius: $radius-val;
+		background: $std_clr_gray_3;
+		width: 100%;
+		height: $bar-height - 3px;;
+		overflow: hidden;
+	}
+	&_color {
+		float: left;
+		width: 24px;
+		height: 24px;
+		margin-left: 10px;
+		border-radius: $radius-val;
+	}
+	&_choice {
+		margin-top: 10px;
+		border: 1px solid $std_clr_gray_1;
+		border-radius: $radius-val;
+		width: $bar-width;
+	}
+	// 修正下拉框中bottom left right	
+	&_choice &_colors {
+		border-bottom: 1px solid $clr-black-dim;
+		&:hover {
+			background-color: $standard-gray-1; 
+		}
+		border-radius: 0;
+		&:first-child {
+			border-top-left-radius: $radius-val;
+			border-top-right-radius: $radius-val;
+		}
+		&:last-child {
+			border-bottom-left-radius: $radius-val;
+			border-bottom-right-radius: $radius-val;
+			border-bottom: 0;
+		}
+	}
+
+}

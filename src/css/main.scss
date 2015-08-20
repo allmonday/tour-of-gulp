@@ -4,9 +4,23 @@
 @import "mixins/position";
 @import "mixin";
 
-
+// customrized element
 @import "btn";
+@import "label";
+@import "textarea";
+@import "radio";
+@import "selector";
 
 html {
+	box-sizing: border-box;
+}
+
+body {
+	$padding-side: 10px;
+	padding-left: $padding-side;
+	padding-right: $padding-side;
+}
+
+div {
 	box-sizing: border-box;
 }
