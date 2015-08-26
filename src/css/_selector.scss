@@ -5,7 +5,7 @@
 	height: 0;
 	border-style: solid;
 	border-width: 4px 4.5px 0 4.5px;
-	border-color: $standard-gray-2 transparent transparent transparent;
+	border-color: $std_clr_gray_1 transparent transparent transparent;
 }
 
 .dq-adv-color {
@@ -48,6 +48,9 @@
 	$bar-height: 37px;
 	$bar-width: 183px;
 	$radius-val: 3px;
+
+	margin-bottom: 5px;
+	
 	&_top {
 		position: relative;
 		height: $bar-height;
@@ -64,7 +67,7 @@
 		height: 100%;
 		border-top-right-radius: $radius-val;
 		border-bottom-right-radius: $radius-val;
-		border-left: 1px solid $standard-gray-2;
+		border-left: 1px solid $std_clr_gray_1;
 		background-color: #fff;
 		&:hover {
 			cursor: pointer;
@@ -102,7 +105,7 @@
 	&_choice &_colors {
 		border-bottom: 1px solid $clr-black-dim;
 		&:hover {
-			background-color: $standard-gray-1; 
+			background-color: #dbdcde; 
 		}
 		border-radius: 0;
 		&:first-child {

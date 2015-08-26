@@ -1,0 +1,205 @@
+@import "variables";
+
+.dq-talk {
+	$size: 10px;
+	$color: black;
+	height: $size;
+	width: $size;
+	border-bottom-left-radius: 10px;
+	border-style: solid;
+	border-width: 0 0 8px 0;
+	border-color: transparent transparent $color $color;
+}
+
+// animation
+
+%dq-rotate {
+	transform: rotate(30deg);
+}
+%dq-skew {
+	transform: skew(30deg, 20deg);
+}
+%dq-matrix {
+	transform: matrix(0.866,0.5,-0.5,0.866,0,0)
+}
+%dq-rotate3d {
+	transform: rotateX(120deg);
+}
+.dq-transform {
+	$size: 30px;
+	margin: 40px;
+	background-color: #ccc;
+	height: $size;
+	width: $size;
+	&.rotate {
+		@extend %dq-rotate;
+	}
+	&.skew {
+		@extend %dq-skew;
+	}
+	&.matrix {
+		@extend %dq-matrix;
+	}
+	&.rotate3d {
+		@extend %dq-rotate3d;
+	}
+}
+
+// transition
+%dq-transition-width {
+	transition: width 0.5s ease-in-out;
+	-webkit-transition:width 0.5s ease-in-out;
+}
+%dq-transition-hw {
+	transition: height 2s, width 2s;
+	-webkit-transition: height 2s, width 2s;
+}
+
+.dq-transition {
+	$size: 30px;
+	margin: 40px;
+	background-color: #ddd;
+	height: $size;
+	width: $size;
+	&.width {
+		@extend %dq-transition-width;
+		&:hover {
+			width: 300px;
+		}
+	}
+	&.hw {
+		@extend %dq-transition-hw;
+		&:hover {
+			height: 70px;
+			width: 100px;
+		}
+	}
+}
+
+
+// animate 
+@keyframes rotating {
+	from {transform: rotate(0deg)}
+	to {transform: rotate(360deg)}
+}
+
+.dq-animate {
+	$size: 30px;
+	margin: 40px;
+	background-color: #ddd;
+	height: $size;
+	width: $size;
+	animation: 1s linear 0s normal none infinite rotating;
+}
+
+.dq-dashed-triangle {
+	$size: 20px;
+	background-color: #fff;
+	border-color: #000;
+	border-width: 0 1px 1px 0;
+	border-style: dashed;
+	height: $size;
+	width: $size;
+	transform: rotate(45deg);	
+}
+
+.dq-h5-list { // ul
+	font-size: 0;
+	%li-common {
+		list-style-type: none;	
+		display: inline-block;
+		margin-right: 12px;
+	}
+	%img-common {
+		$size: 90px;
+		height: $size;
+		width: $size;
+		box-sizing: border-box;
+	}
+	padding: 0;
+
+	&_item { // li
+		@extend %li-common;
+		vertical-align: top;
+		&.selected {
+			.dq-h5-list_img {
+				border: 2px solid $std_clr_blue_0;
+				box-shadow: 2px 2px 4px 0px $clr-blue-dim;
+			}
+			.dq-h5-list_title {
+				color: $clr-blue-standard;
+			}
+		}
+	}	
+	&_add {
+		@extend %li-common;
+	}
+	&_btn-add {
+		@extend %img-common;
+
+		padding-top: 35px;
+		background: $std_clr_gray_3;
+		border: 1px  dashed $clr-black-dim;
+		cursor: pointer;
+		vertical-align: middle;
+		text-align: center;
+		&_symbol {
+			color: $std_clr_gray_1;
+			font-size: 18px;
+		}
+
+		&:hover {
+			background: darken($std_clr_gray_3, 2%);
+		}
+	}
+	&_img {
+		border: 2px solid $std_clr_gray_1;
+		@extend %img-common;
+	}
+	&_title {
+		margin-top: 7px;
+		text-align: center;
+		color: $std_clr_gray_1;
+		font-size: 14px;
+		cursor: default;
+		width: 90px;
+	}
+}
+
+.dq-beauty-btn {
+	display: inline-block;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	border-color: #ccc;
+	padding: 14px 28px;
+
+	background-image: linear-gradient(top, #0088cc, #0055cc);
+	background-repeat: repeat-x;
+	text-align: center;
+	cursor: pointer;
+	vertical-align: middle;
+	text-decoration: none;
+	color: #fff;
+
+	&:hover {
+		background-position: 0 -15px;
+		background-color: #0055cc;
+		transition: background-position 0.1s linear;
+	}
+
+	&:active {
+		background-color: #0055cc;
+		background-image: none;
+		outline: 0;
+		box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15),
+					      0 1px 2px rgba(0, 0, 0, 0.05);
+		color: rgba(255, 255, 255, 0.75);
+	}
+
+	&:focus {
+		outline: thin dotted #333;
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+}

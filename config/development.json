@@ -6,6 +6,6 @@
 	"breakOnError": false,
 	"sync": true,
 	"server": {
-		"port": "8888"
+		"port": "9001"
 	}
 }
