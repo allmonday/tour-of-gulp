@@ -25,3 +25,26 @@
 .btn-default {
 	@include button-variant(black, white, gray);
 }
+
+.dq-menu-button {
+	margin-bottom: 5px;
+	background: $std_clr_gray_3;
+	border: 1px solid $std_clr_gray_4;
+	border-radius: 2px;
+
+	height: 40px;
+	width: 186px;
+
+	font-size: 14px;
+	vertical-align: middle;
+	text-align: center;
+
+	&_input {
+		margin-top: 10px;
+		background-color: $std_clr_gray_3;
+		border: 0;
+		width: 50%;
+		text-align: center;
+	}
+
+}
