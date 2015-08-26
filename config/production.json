@@ -4,6 +4,9 @@
 	"strict": true,
 	"breakOnError": true,
 	"carryOther": true,
-	"cachebust": true
+	"cachebust": true,
+	"server": {
+		"port": "8000"
+	}
 }
 
