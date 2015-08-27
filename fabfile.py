@@ -8,8 +8,11 @@ env.hosts = ['tangkikodo@kimiaj.com']
 def test():
     local("echo testing")
 
+def add():
+    local("git add -u")
+
 def commit():
-    local("git add -p && git commit")
+    local("git commit")
 
 def push():
     local("git push")
