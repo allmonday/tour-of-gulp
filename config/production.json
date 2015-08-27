@@ -6,7 +6,7 @@
 	"carryOther": true,
 	"cachebust": true,
 	"server": {
-		"port": "9001"
+		"port": "8000"
 	}
 }
 
