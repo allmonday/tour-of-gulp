@@ -11,11 +11,25 @@
 	<section class="header">
 		<h1>header</h1>	
 	</section>
+	<div id="animate-effect" class="animated {{effect}}">type</div>
+	<div id="top-tip" 
+		 class="dq-top-fix">
+		<span v-class="
+				animation: open
+				"
+			  class="dq-top-fix_text">
+			{{ open }}
+		</span>
+	</div>
 	<section id="search-bar">
 		<p>{{ searchContent }}</p>
 		<input type="text" v-model="searchContent">
 		<div class="btn btn-default" id="" v-on="click: addItem">add</div>
 		<div class="btn btn-default" id="" v-on="click: removeItem">remove</div>
+		<div class="dq-beauty-btn" v-on="click: flipTip">click to change</div>
+		<hr>
+		<select v-model="selected" options="animateClasses"></select>
+		<div class="dq-beauty-btn" v-on="click: setAnimateClass">set class</div>
 	</section>
 
 	<section id="items">
@@ -23,7 +37,7 @@
 			<li class="item" v-repeat="items">
 				<span class="item__index">{{ $index }}</span>
 				<span class="item__content">{{ $value }}</span>
-				<span class="item__content" v-text="$value | reverse"></span>
+				<!-- <span class="item__content" v-text="$value | reverse"></span> -->
 			</li>
 		</ul>
 	</section>
@@ -146,6 +160,7 @@
 	<a class="dq-beauty-btn">hello world</a>
 	<button class="dq-beauty-btn">hello world</button>
 	<hr>
+
 
 
  	<!-- inject:js -->

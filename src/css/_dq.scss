@@ -83,13 +83,20 @@
 	to {transform: rotate(360deg)}
 }
 
+@keyframes moving {
+	0% {transform: translateX(0px)}
+	50% {transform: translateX(100px)}
+	100% {transform: translateX(0px)}
+}
+
 .dq-animate {
 	$size: 30px;
 	margin: 40px;
 	background-color: #ddd;
 	height: $size;
 	width: $size;
-	animation: 1s linear 0s normal none infinite rotating;
+	// animation: 1s linear 0s normal none infinite rotating;
+	animation: 1s ease-in-out 0s normal none infinite moving;
 }
 
 .dq-dashed-triangle {
@@ -202,5 +209,55 @@
 		outline: thin dotted #333;
 		outline: 5px auto -webkit-focus-ring-color;
 		outline-offset: -2px;
+	}
+}
+
+
+@keyframes vertical-moving {
+	0% {transform: translateY(-40px)}
+	20% {transform: translateY(0px)}
+	80% {transform: translateY(0px)}
+	100% {transform: translateY(-40px);
+		  visibility: hidden}
+}
+
+.dq-top-fix {
+	margin: 0 auto;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 0;
+	text-align: center;
+
+	&_text {
+		$radius-value: 4px;
+		$top-value: 10px;
+		$bg-color: #33cc78;
+
+		vertical-align: top;
+		position: relative;
+		top: $top-value;
+		padding: $top-value 14px;
+		border-bottom-left-radius: $radius-value;
+		border-bottom-right-radius: $radius-value;
+		border-color: darken($bg-color, 5%);
+		border-style: solid;
+		border-width: 1px;
+		box-shadow: 0px 1px 3px #aaa;
+		user-select: none;
+		cursor: default;
+		background-color: $bg-color;
+		color: #fff;
+		text-shadow: 1px 1px 1px #777; 
+		font-size: 18px;
+		visibility: hidden;
+
+		&:hover {
+			background-color: darken($bg-color, 2%); 
+		}
+		&.animation {
+			visibility: visible;
+			animation: 5s ease-in-out 0s normal vertical-moving;
+		}
 	}
 }

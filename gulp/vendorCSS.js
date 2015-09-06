@@ -4,6 +4,7 @@ module.exports = function (gulp, $, config, tool) {
 		
 		var vendors = [
 			// 'bower_components/uikit/css/uikit.css'
+			'src/css/vendor/animate.css'
 		]
 
 		return gulp.src(vendors)
